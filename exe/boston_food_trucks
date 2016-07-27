@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require "table_print"
+require_relative "../lib/boston_food_trucks"
+
+trucks = BostonFoodTrucks::Truck.today.sort_by! { |truck| [truck.meal, truck.location, truck.name] }
+tp(trucks, :meal, :name, { location: { width: 50 } })
